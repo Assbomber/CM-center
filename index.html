@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <style>
+        body{
+            background-color:white;
+        }
+        .navigator a{
+            text-align: center;
+            display:block;
+            text-decoration:none;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.17em;
+            margin:0 1%;
+            min-height:30px;
+            color:grey;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .navigator .active{
+            border-bottom: 3px solid #936F1F;
+        }
+        .navigator{
+            display:flex;
+            justify-content: center;
+             overflow: auto;
+        }
+        .navigator::-webkit-scrollbar {
+              display: none;
+            }
+        img{
+            display:block;
+            max-width:100%;
+            margin:0 auto;
+            margin-top:50px;
+        }
+        a:active, a:focus {
+          outline: 0;
+          border: none;
+        }
+        @media only screen and (max-width:767px){
+             .navigator a{
+                 /* height:50px; */
+                /* display:inline-block; */
+                margin:0 20px;
+            } 
+            .navigator{
+                display:block;
+                /* white-space: nowrap; */
+                /* overflow: auto; */
+            }
+            /* .navigator::-webkit-scrollbar {
+              display: none;
+            } */
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="navigator">
+        <a href="#" class="active">THE LATEST</a>
+        <a href="#">OUR PRODUCTS</a>
+        <a href="#">HOW TO</a>
+        <a href="#">WE CARE ABOUT</a>
+        
+        
+    </div>
+    <img src="https://pbs.twimg.com/profile_images/758084549821730820/_HYHtD8F.jpg" alt="">
+
+    <!-- scripts -->
+
+
+    <script>
+        $(".navigator a").click(function(){
+            $(".navigator a").removeClass("active");
+            $(this).addClass("active");
+        })
+        $(document).ready(function(){
+            if($(window).width()<768) initSlick();
+        });
+        $(window).resize(function(){
+            if($(window).width()<768) initSlick();
+            else  $('.navigator').slick("unslick");
+        })
+
+        function initSlick(){
+            $('.navigator').slick({
+                 slidesToShow: 3,
+                 slidesToScroll: 2,
+                 dots: false,
+                 arrows: false,
+                 centerMode: true,
+                 focusOnSelect: true,
+                 infinite:false,
+                 variableWidth:true,
+             });
+        }
+    </script>
+    
+</body>
+</html>
